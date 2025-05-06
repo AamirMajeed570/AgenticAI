@@ -1,7 +1,24 @@
 import datetime
 from zoneinfo import ZoneInfo
 from google.adk.agents import Agent
+from typing import Union
 
+def get_sum(a: float, b: float) -> dict:
+    """Retreives the Sum of two Numbers.
+    
+    Args:
+        a float: The First Argument User will Pass
+        b float: The Second Argument User will 
+        
+    Returns:
+        Union[int,float]: status and result or error msg.
+    """
+    return {
+            "status": "success",
+            "report": (
+                "The Sum is {a+b}!"
+            )
+        }
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
 
@@ -29,7 +46,7 @@ def get_weather(city: str) -> dict:
 def get_current_time(city: str) -> dict:
     """Returns the current time in a specified city.
 
-    Args:
+    Args:   
         city (str): The name of the city for which to retrieve the current time.
 
     Returns:
@@ -63,5 +80,5 @@ root_agent = Agent(
     instruction=(
         "You are a helpful agent who can answer user questions about the time and weather in a city."
     ),
-    tools=[get_weather, get_current_time],
+    tools=[get_weather, get_current_time,get_sum],
 )
