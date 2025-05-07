@@ -16,7 +16,7 @@ def get_sum(a: float, b: float) -> dict:
     return {
             "status": "success",
             "report": (
-                "The Sum is {a+b}!"
+                "The Sum of {a}! and {b}! is {a+b}!"
             )
         }
 def get_weather(city: str) -> dict:
